@@ -11,9 +11,15 @@ class CodeGeneratorForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('numberOfCodes', NumberType::class)
-            ->add('lengthOfCode', NumberType::class)
-            ->add('submit', SubmitType::class)
+            ->add('numberOfCodes', NumberType::class, [
+                'label' => 'How many codes to generate'
+            ])
+            ->add('lengthOfCode', NumberType::class, [
+                'label' => 'How long the codes should be'
+            ])
+            ->add('submit', SubmitType::class, [
+                'label' => 'Generate!'
+            ])
         ;
     }
 }
