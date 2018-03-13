@@ -57,4 +57,30 @@ class CodeGeneratorTest extends TestCase
             }
         }
     }
+
+    public function testGenerateCodesForUniques()
+    {
+        $generator = new CodeGenerator(2);
+
+        for ($i = 0; $i < 10; $i++) {
+            $codes = $generator->generate(3000);
+
+            $uniques = array_unique($codes);
+            self::assertCount(3000, $uniques);
+        }
+    }
+
+    /**
+     * @testWith [1, 100]
+     *           [2, 4000]
+     *           [3, 250000]
+     */
+    public function testGenerateCodesWhenOverLimit(int $length, int $howMany)
+    {
+        $generator = new CodeGenerator($length);
+
+        self::expectException(\InvalidArgumentException::class);
+
+        $generator->generate($howMany);
+    }
 }

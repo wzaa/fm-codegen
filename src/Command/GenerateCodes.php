@@ -57,7 +57,7 @@ class GenerateCodes extends Command
         $codes = $generator->generate($this->numberOfCodes);
 
         if ($this->file) {
-            $text = implode("\n", $codes);
+            $text = implode("\r\n", $codes);
 
             file_put_contents($this->file, $text);
         } else {
