@@ -40,7 +40,7 @@ class GeneratorController extends Controller
 
         $codes = $generator->generate($numberOfCodes);
 
-        $joined = join("\r\n", $codes);
+        $joined = join("\r\n", $codes) . "\r\n";
 
         $response = new Response($joined);
 

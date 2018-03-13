@@ -58,7 +58,7 @@ class CodeGeneratorTest extends TestCase
         }
     }
 
-    public function testGenerateCodesForUniques()
+    public function testGenerateCodesAreUnique()
     {
         $generator = new CodeGenerator(2);
 
